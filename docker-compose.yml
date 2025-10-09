@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: etufor-mcp-app
+    volumes:
+      - .:/app
+    env_file:
+        - .env
+    command: tail -f /dev/null
