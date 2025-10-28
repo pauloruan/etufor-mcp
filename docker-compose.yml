@@ -1,9 +1,21 @@
 services:
-  app:
-    build: .
-    container_name: etufor-mcp-app
+  etufor-mcp:
+    container_name: etufor-mcp-server
+    build:
+      context: .
+      target: build
     volumes:
-      - .:/app
+      - ./:/app
     env_file:
-        - .env
-    command: tail -f /dev/null
+      - .env
+    ports:
+      - "3333:3333"
+    command: npm run dev
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: etufor-mcp-redis
+    ports:
+      - "6379:6379"

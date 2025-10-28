@@ -1,9 +1,13 @@
-FROM python:3.11-slim
+FROM node:22-slim AS build
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY package*.json .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN npm install
 
 COPY . .
+
+EXPOSE 3333
+
+RUN npm run build

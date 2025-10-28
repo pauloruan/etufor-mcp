@@ -1,6 +1,6 @@
 .PHONY: help up down shell rebuild logs
 
-APP_SERVICE_NAME=app
+APP_SERVICE_NAME=etufor-mcp
 
 help:
 	@echo "Comandos disponíveis:"
