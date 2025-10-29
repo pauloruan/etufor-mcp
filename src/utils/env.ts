@@ -4,6 +4,7 @@ const envSchema = z.object({
   ETUFOR_API_BASE_URL: z.string(),
   ETUFOR_XML_URL: z.string(),
   REDIS_URL: z.string(),
+  PORT: z.coerce.number(),
 });
 
 export const env = envSchema.parse(process.env);

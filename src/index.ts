@@ -1,6 +1,9 @@
-import "./mcp";
-import { server } from "./server";
+import "./mcp"
+import { server } from "./server"
+import { env } from "./utils/env"
 
-server.listen(3333, () => {
-  console.log(`Server is running in http://localhost:3333.`);
-});
+const port = env.PORT || 4000
+
+server.listen(port, () => {
+  console.log(`🚀 Server is running in http://localhost:${port}.`)
+})
